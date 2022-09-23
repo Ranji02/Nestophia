@@ -1,0 +1,15 @@
+.title1{
+    background-color: #6A9F40;
+    opacity: 0.9;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    font-family: 'Tangerine';
+    font-weight:lighter;
+    color: white;
+    font-size: 50px;
+    margin-left: 0px;
+    padding-left: 5px;
+    margin-top: -18px;
+    text-shadow: 1px 2px 2px white, 1px 2px #45a024, 2px 3px 3px #45a024, 1px 5px 1px #6b3914, 2px 6px 2px #6b3914;
+}

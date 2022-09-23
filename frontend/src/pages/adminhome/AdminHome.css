@@ -1,0 +1,53 @@
+.home-link {
+    margin-right: 2rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    background: none;
+    margin-left: 80%;
+    color: #6b3914;
+    margin-top: 3px;
+    border-bottom: 1px solid #6b3914;
+}
+
+.top-navigation{
+    margin-top: 75px;
+    margin-left: 22%;
+    margin-right: 20%;
+    align-items: center;
+}
+
+.top-navigation div{
+    background-color: #6b3914;
+    opacity: 0.93;
+    align-items: center;
+    display: flex;
+    width: 240px;
+    height: 60px;
+    float: left;
+}
+
+.a2{
+text-decoration: none;
+font-size: 25px;
+color: inherit;
+}
+
+.top-navigation a:-webkit-any-link:hover{
+color: inherit;
+width: 200%;
+}
+
+.top-navigation a:-webkit-any-link{
+cursor: pointer;
+color: white;
+font-weight: 600;
+width: 200%;
+margin: 0px;
+}
+
+
+.top-navigation div:hover {
+    background-color: white;
+    color: #6b3914;
+}
+
