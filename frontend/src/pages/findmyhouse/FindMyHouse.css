@@ -1,0 +1,172 @@
+.filter-form{
+    margin-top: -8px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 0px;
+    margin-left: 0px;
+    padding-left: 1px;
+    background-color: #6B3914;
+    opacity: 0.8;
+
+}
+
+.houses1{
+    background-color: #D9D9D9;
+    opacity: 0.9;
+    padding: 0px 60px;
+    border-radius: 30px;
+    border: #6B3914 1px;
+    border: 1px solid #6B3914;
+    height: 130px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.house-img1{
+    opacity: 1;
+    width: 230px;
+    padding-left: 0px;
+    margin-left: -61px;
+    border-radius: 30px 0px 0px 30px;
+    height: 130px;
+}
+
+
+.house-name1{
+    text-align: right;
+    margin-top: -130px;
+    display: flex;
+    margin-left: 180px;
+    font-size: 30px;
+}
+
+.house-permissible-gender1{
+    margin-top: -25px;
+    margin-left: 530px;
+}
+
+.house-availability1{
+    margin-top: -18px;
+    margin-left: 780px;
+}
+
+.house-bhk1{
+    margin-top: -18px;
+    margin-left: 955px;
+}
+
+.house-rent1{
+    margin-left: 1080px;
+    margin-top: -18px;
+    margin-right: -100px;
+}
+
+.house-city1{
+    margin-top: 5px;
+    margin-left: 180px;
+}
+
+.house-amenities1{
+    margin-left: 750px;
+    margin-top: -18px;
+}
+
+
+
+.house-owner-name1{
+    margin-left: 180px;
+}
+
+.house-owner-mobile1{
+    margin-top: -18px;
+    margin-left: 470px;
+}
+
+.house-owner-email1{
+    margin-top: -18px;
+    margin-left: 730px;
+}
+
+.contact-owner1{
+    width:200px;
+    margin-left:1000px;
+    padding-right:20px;
+    padding-left:20px;
+    margin-top: -33px;
+    position: absolute;
+}
+
+.filter-form input,select{
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-left: 10px;
+    opacity: 0.7;
+    height: 30px;
+    color: #529537;
+}
+
+.css-1s2u09g-control {
+    padding: 5px;
+    font-size: 16px;
+    margin-left: 10px;
+    opacity: 0.7;
+    position: fixed;
+    margin-top: 10px;
+    align-items: center;
+    border-color: #529537;
+    border-radius: 5px;
+    border-width: 1px;
+    width: 160px;
+    max-height: 40px;
+    overflow: hidden;
+    position: absolute;
+
+}
+
+
+#bhk{
+    padding-right: 90px;
+}
+
+.sel{
+    width: 160px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: 40px;
+    margin-top: 10px;
+    padding-right: 60px;
+    color: #529537;
+    border-color: #529537;
+    outline-color: #529537;
+}
+
+.css-1s2u09g-control {
+    background-color: #529537;
+    border-color: #529537;
+    justify-content: space-between;
+    height: 40px;
+    outline: #529537;
+    flex-wrap: nowrap;
+}
+
+.filter-form input[type=text],[type=number] {
+    max-width: 150px;
+}
+
+.filter-form input::placeholder{
+    opacity: 0.9;
+}
+
+#amenities option {
+    color: #529537;
+    width: 100px;
+    padding-right: 50px;
+    padding-left: 5px;
+}
+
+.select1:hover{
+    height: 70px;
+}

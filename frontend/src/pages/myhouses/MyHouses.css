@@ -1,0 +1,103 @@
+.my-houses{
+    background-color: #D9D9D9;
+    opacity: 0.9;
+    padding: 0px 60px;
+    padding-bottom: 9px;
+    border-radius: 30px;
+    border: #6B3914 1px;
+    border: 1px solid #6B3914;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+.my-house-img{
+    opacity: 1;
+    width: 240px;
+    padding-left: 0px;
+    margin-left: -61px;
+    border-radius: 30px 30px 30px 30px;
+    height: 140px;
+}
+
+.my-house-name{
+    text-align: right;
+    margin-top: -135px;
+    display: flex;
+    margin-left: 200px;
+    font-size: 30px;
+}
+
+.my-house-permissible-gender{
+    margin-top: -25px;
+    margin-left: 630px;
+}
+
+.my-house-bhk{
+    margin-top: -18px;
+    margin-left: 890px;
+}
+
+.my-house-rent{
+    margin-left: 1050px;
+    margin-top: -18px;
+    margin-right: -100px;
+}
+
+.my-house-city{
+    margin-top: 8px;
+    margin-left: 200px;
+}
+
+.my-house-availability{
+    margin-top: 8px;
+    margin-left: 200px;
+}
+
+.my-house-document{
+    margin-left: 400px;
+    margin-top: -20px;
+}
+
+.my-house-request-status{
+    margin-top: -22px;
+    margin-left: 700px;
+    font-size: 22px;
+}
+
+.show-pg-details{
+    padding: 10px;
+    border: none;
+    box-shadow: 2px 2px 2px #582d0c;
+    background-color: #a3f483;
+    color: #6B3914;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    width: 200px;
+    margin-left: 950px;
+    margin-top: -38px;
+    position: absolute;
+}
+
+.pg-name{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.pg-mobile{
+    margin-top: -18px;
+    margin-left: 360px;
+}
+
+.pg-email{
+    margin-top: -18px;
+    margin-left: 630px;
+    margin-right: -100px;
+}
+
+.pg-requested-space{
+    margin-top: -20px;
+    margin-left: 980px;
+}

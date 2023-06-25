@@ -1,0 +1,6 @@
+.user-details td{
+    width: 200px;
+    border: 1px solid;
+    align-items: center;
+    padding: 5px;
+}
