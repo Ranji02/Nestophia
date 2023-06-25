@@ -184,7 +184,7 @@ const AddMyHouse = () => {
                         <td><label>Total Capacity:</label></td>
                         <td><input type="number" id="tc" min="1" style={{width:"279px"}} onChange={(e) => setTotalCapacity(e.target.value)} required></input></td>
                         <td><label>Current Availability:</label></td>
-                        <td><input type="number" id="ca" min="1" max={document.getElementById('tc').value} style={{width:"279px"}} onChange={(e) => setCurrentAavailability(e.target.value)} required></input><br/></td>
+                        <td><input type="number" id="ca" min="1" max={document.getElementById('tc') == null ? null : document.getElementById('tc').value} style={{width:"279px"}} onChange={(e) => setCurrentAavailability(e.target.value)} required></input><br/></td>
                     </tr>
                     <tr>
                         <td></td>
