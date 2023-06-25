@@ -52,6 +52,38 @@ public class HouseService {
     //     return "House not found";
 
     // }
+    public String updateHouseRequest(Reservation r){
+      reservationRepository.updateHouseRequest(r.getHouseId(), r.getPgId(), r.getStatus());
+      System.out.println(r.getStatus());
+      if((r.getStatus()).equalsIgnoreCase("accepted")){
+        houseRepository.updateHouseAvailability(r.getHouseId(), -r.getNoOfPeople());
+        System.out.println("House Request Updated");
+        return "{ \"1\" : \"House Request Updated\"}"; 
+      }
+      else{
+        System.out.println("House Request Rejected");
+        return "{ \"1\" : \"House Request Rejected\"}";
+      }
+     
+    }
+
+    public String cancelReservation(Reservation r){
+      reservationRepository.cancelReservation(r.getHouseId(), r.getPgId());
+      if((r.getStatus()).equalsIgnoreCase("accepted")){
+        houseRepository.updateHouseAvailability(r.getHouseId(), r.getNoOfPeople());
+        System.out.println("Reservation Cancelled");
+        return "{ \"1\" : \"Reservation Cancelled\"}"; 
+      }
+      else{
+        System.out.println("Request Cancelled");
+        return "{ \"1\" : \"Request Cancelled\"}";
+      }
+    }
+
+  public void deleteHouse(Integer h){
+    houseRepository.deleteHouse(h);
+  }
+
 
     public House updateHouse(House s){
         Optional<House> optionalHouse = houseRepository.findById(s.getHouseId());
@@ -114,15 +146,18 @@ public class HouseService {
       return (List<House_Details>)houseRepository.getMyReservation(r); 
     }
 
-    public void cancelReservation(Integer house_id, Integer pg_id){
-      // if(reservationRepository.existsByHouseId(house_id)){
-      //   if(reservationRepository.existsByPgId(pg_id)){
-
-      //   }
-      // }
-      reservationRepository.cancelReservation(house_id, pg_id);
+    public List<House_Details> getAllMyRRHouses(Integer houseOwnerId){
+      return (List<House_Details>)houseRepository.getAllMyRRHouses(houseOwnerId);
     }
 
+    public List<House> getMyHouses(Integer houseOwnerId){
+      return (List<House>)houseRepository.getMyHouses(houseOwnerId);
+    }
+
+    public List<House_Details> getTenanDetails(Reservation r){
+      System.out.println(r.getHouseId() + houseRepository.getTenanDetails(r.getHouseId()).toString());
+      return houseRepository.getTenanDetails(r.getHouseId());
+    }
 
     public String deleteHouseById(Integer houseId) {
         houseRepository.deleteById(houseId);

@@ -3,7 +3,9 @@ import com.example.demo.model.House_Details;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.model.House;
 
@@ -45,16 +47,32 @@ public interface HouseRepository extends JpaRepository<House, Integer> {
     @Query("SELECT new com.example.demo.model.House_Details(h.house_id, h.pic1, h.house_name, h.permissible_gender, h.available_space, h.total_space, h.city, h.bhk, h.rent_amount, u.name, h.amenities, u.mobile, h.house_receipt, u.aadhar_card) FROM User u JOIN House h ON h.houseowner_id = u.user_id WHERE h.status='pending'")
     public List<House_Details> getHouseDetails();
 
-    @Query("SELECT new com.example.demo.model.House_Details(h.house_id, h.pic1, h.house_name, h.permissible_gender, h.available_space, h.total_space, h.address_line_1, h.address_line_2, h.city, h.bhk, h.rent_amount, u.name, h.amenities, u.mobile, u.email, r.no_of_people, r.status) FROM Reservation r JOIN House h ON r.house_id = h.house_id JOIN User u ON h.houseowner_id = u.user_id WHERE r.house_id = (SELECT r.house_id FROM Reservation WHERE r.pg_id = ?1) AND r.status='pending'")
+    @Query("SELECT new com.example.demo.model.House_Details(h.house_id, h.pic1, h.house_name, h.permissible_gender, h.available_space, h.total_space, h.address_line_1, h.address_line_2, h.city, h.bhk, h.rent_amount, u.name, h.amenities, u.mobile, u.email, r.no_of_people, r.status) FROM Reservation r JOIN House h ON r.house_id = h.house_id JOIN User u ON h.houseowner_id = u.user_id WHERE r.house_id = (SELECT r.house_id FROM Reservation WHERE r.pg_id = ?1) AND r.status!='rejected' AND r.pg_id = ?1")
     public List<House_Details> getMyReservation(Integer pg_id);
+
+    @Query("SELECT new com.example.demo.model.House_Details(h.house_id, h.pic1, h.house_name, h.permissible_gender, h.available_space, h.total_space, h.address_line_1, h.address_line_2, h.city, h.bhk, h.rent_amount, u.name, h.amenities, u.mobile, u.email, r.no_of_people, r.status, h.house_receipt, u.aadhar_card, r.pg_id) FROM House h JOIN Reservation r ON h.house_id = r.house_id JOIN User u ON r.pg_id = u.user_id where h.houseowner_id = ?1 AND r.status='pending'")
+    public List<House_Details> getAllMyRRHouses(Integer houseId);
 
     @Query(value = "SELECT * FROM House where permissible_gender = ?1 AND bhk = ?2 AND amenities = ?3 AND rent_amount <= ?4 AND available_space >= ?5 AND city = ?6 AND status = 'accepted'", nativeQuery = true)
     public List<House> getAvailableHouses(String permissible_gender, String bhk, String amenities, Double rent_amount, Integer available_space,String city);
     
+    @Query(value = "SELECT * FROM House where houseowner_id = ?1 AND status!='rejected'", nativeQuery = true)
+    public List<House> getMyHouses(Integer houseOwnerId);
     
+    @Modifying
+    @Transactional
+    @Query("UPDATE House SET available_space = available_space + ?2 WHERE house_id = ?1")
+    public int updateHouseAvailability(Integer house_id, Integer no_of_people);
 
 
-    
+    @Query("SELECT new com.example.demo.model.House_Details(u.name, u.mobile, u.email, u.aadhar_card, r.no_of_people, r.house_id, r.pg_id) FROM Reservation r JOIN User u ON r.pg_id = u.user_id WHERE r.status='accepted' AND r.house_id=?1")
+    public List<House_Details> getTenanDetails(Integer house_id);
+
+    @Modifying
+    @Transactional
+    @Query(value = "delete from House where house_id = ?1", nativeQuery = true)
+    public void deleteHouse(Integer h);
+
     // public void delete(Optional<House> house);
 
     // public boolean existsByHouseId(Integer house_id);

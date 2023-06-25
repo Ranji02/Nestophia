@@ -44,13 +44,40 @@ public class HouseController {
       return houseService.getMyReservation(r.getPgId());
     }
 
+    @PostMapping("/getAllMyRRHouses")
+    public List<House_Details> getAllMyRRHouses(@RequestBody House h){
+      System.out.println("House owner id : " + h.getHouseOwnerId());
+      return houseService.getAllMyRRHouses(h.getHouseOwnerId());
+    }
+
+    @PostMapping("/getMyHouse")
+    public List<House> getMyHouses(@RequestBody House h){
+      System.out.println("House owner id : " + h.getHouseOwnerId());
+      return houseService.getMyHouses(h.getHouseOwnerId());
+    }
+
+    @PostMapping("/getTenantDetails")
+    public List<House_Details> getTenanDetails(@RequestBody Reservation r){
+      return houseService.getTenanDetails(r);
+    }
+
+    @PostMapping("/updateRequestHouse")
+    public String updateHouseRequest(@RequestBody Reservation r){
+      System.out.println("PG_ID11: " + r.getHouseId() + r.getPgId() + r.getNoOfPeople());
+      return houseService.updateHouseRequest(r);
+    }
+
     @PostMapping("/cancelReservation")
     public String cancelReservation(@RequestBody Reservation r){
       System.out.println("PG_ID: " + r.getHouseId() + r.getPgId());
-      houseService.cancelReservation(r.getHouseId(),r.getPgId());
-      return "{ \"1\" : \"Request Cancelled\"}";
+      return houseService.cancelReservation(r);
     }
 
+    @PostMapping("/deleteHouse")
+    public String deleteHouse(@RequestBody House h){
+      houseService.deleteHouse(h.getHouseId());
+      return "{ \"1\" : \"House Deleted\"}";
+    }
     @PostMapping("/updateHouse")
     public House updateStudent(@RequestBody House h){
       return houseService.updateHouse(h);
